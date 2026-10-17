@@ -1,0 +1,22 @@
+[Unit]
+Description=AWS DevOps Lab Backend API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=devopslab
+Group=devopslab
+WorkingDirectory=/opt/devops-lab
+EnvironmentFile=/etc/devops-backend.env
+ExecStart=/opt/devops-lab/venv/bin/python /opt/devops-lab/app.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=multi-user.target

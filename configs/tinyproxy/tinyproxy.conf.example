@@ -1,0 +1,18 @@
+# Somente para instalação temporária de pacotes neste laboratório.
+User tinyproxy
+Group tinyproxy
+Port 8888
+Listen 10.10.1.96
+Timeout 600
+MaxClients 20
+LogFile "/var/log/tinyproxy/tinyproxy.log"
+LogLevel Info
+ViaProxyName "devops-lab-proxy"
+Allow 127.0.0.1
+Allow 10.10.1.96
+Allow 10.10.2.214
+Allow 10.10.3.72
+Filter "/etc/tinyproxy/ubuntu-allowlist"
+FilterDefaultDeny Yes
+FilterType ere
+ConnectPort 0
